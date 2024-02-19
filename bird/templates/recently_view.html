@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Птицы которых я видел</h1>
+<form method="POST" action="{% url 'recently_view'%}">
+    {%csrf_token%}
+    <button style="font-size: 35px;" >+</button>
+</form>
+
+{% if object and object != 'blank' %}
+<h2>Текущее время и дата -> {{date}}</h2>
+<h2>Название птицы -> {{object}}</h2>
+<h2><img src="{{object.img.url}}"></h2>
+<h2>Количество актов видения птицы на момент создания записи -> {{quan}}</h2>
+{%elif object == 'blank'%}
+<h2>Нет отмеченных птиц</h2>
+{%endif%}
+<form action="{% url 'all_bird'%}">
+    <button style="font-size: 25px;"> На главную </button>
+</form>
+</body>
+</html>

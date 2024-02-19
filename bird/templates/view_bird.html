@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Название птицы -> {{object}}</h2>
+<h2>Цвет оперения -> {{object.color_plumage}}</h2>
+<h2><div><img src="{{object.img.url}}"></div></h2>
+<ul>
+    <li>
+<form method="POST"  action="{% url 'view_bird' pk=object.pk %}">
+    {% csrf_token %}
+  <input type="submit" style="font-size : 30px;" value="Видел ">
+</form>
+        </li>
+    <li>
+<form action="{% url 'all_bird'%}">
+    <button style="font-size : 30px;  100px;"> На главную </button>
+</form>
+    </li>
+</ul>
+</body>
+</html>

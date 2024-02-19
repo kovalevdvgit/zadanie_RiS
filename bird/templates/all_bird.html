@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="font-size: 40px; width: 100%;"> Птицы </h1>
+<ul>
+    <li>
+<form action="{% url 'recently_view'%}">
+    <button style="font-size: 25px;"> Птицы которых я видел </button>
+</form>
+        </li>
+    <li>
+<form action="{% url 'create_bird'%}">
+    <button style="font-size: 25px;"> Добавить птицу </button>
+</form>
+    </li>
+</ul>
+{% for bird in object_list %}
+<h2>{{bird}}</h2>
+<div><a href="{% url 'view_bird' pk=bird.pk %}"><img src="{{bird.img.url}}"></a></div>
+{%endfor%}
+
+</body>
+</html>
